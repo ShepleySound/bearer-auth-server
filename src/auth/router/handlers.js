@@ -6,10 +6,10 @@ async function handleSignup(req, res, next) {
   try {
     let userRecord = await users.create(req.body);
     const output = {
-      user: userRecord,
+      user: userRecord.username,
       token: userRecord.token,
     };
-    res.status(200).json(output);
+    res.status(201).json(output);
   } catch (e) {
     console.error(e);
     next(e);

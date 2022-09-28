@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const userSchema = (sequelize, DataTypes) => {
   const model = sequelize.define('User', {
     username: { type: DataTypes.STRING, allowNull: false, unique: true },
-    password: { type: DataTypes.STRING, allowNull: false, },
+    password: { type: DataTypes.STRING, allowNull: false },
     token: {
       type: DataTypes.VIRTUAL,
       get() {
@@ -31,14 +31,14 @@ const userSchema = (sequelize, DataTypes) => {
   }
 
   /**
-   * Authenticates a token from the client yeah
+   * Authenticates a token from the client
    * @param {*} token JSON Web Token from the client
    * @returns A user object
    */
   model.prototype.authenticateToken = async function (token) {
     try {
       const parsedToken = jwt.verify(token, process.env.SECRET);
-      const user = this.findOne({ username: parsedToken.username })
+      const user = this.findOne({ username: parsedToken.username });
       if (user) { return user; }
       throw new Error('User not found');
     } catch (e) {
@@ -47,6 +47,6 @@ const userSchema = (sequelize, DataTypes) => {
   }
 
   return model;
-}
+};
 
 module.exports = userSchema;
