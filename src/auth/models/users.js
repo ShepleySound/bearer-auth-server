@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -11,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get() {
         return jwt.sign({ username: this.username }, process.env.SECRET, {
-          expiresIn: '30m'
+          expiresIn: '30m',
         });
       },
     },
