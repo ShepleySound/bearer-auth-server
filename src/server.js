@@ -23,6 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use(authRoutes);
 
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to the server!');
+});
+
 // Catch-alls
 app.use('*', notFound);
 
