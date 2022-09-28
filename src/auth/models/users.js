@@ -1,6 +1,7 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const userSchema = (sequelize, DataTypes) => {
   const model = sequelize.define('User', {
@@ -37,9 +38,9 @@ const userSchema = (sequelize, DataTypes) => {
       const parsedToken = jwt.verify(token, process.env.SECRET);
       const user = this.findOne({ username: parsedToken.username })
       if (user) { return user; }
-      throw new Error("User Not Found");
+      throw new Error('User not found');
     } catch (e) {
-      throw new Error(e.message)
+      throw new Error(e.message);
     }
   }
 
