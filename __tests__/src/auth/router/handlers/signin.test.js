@@ -31,11 +31,7 @@ describe('Testing the signin handler', () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith(
       expect.objectContaining({
-        user: expect.objectContaining({
-          username: expect.any(String),
-          password: expect.any(String),
-          token: expect.any(String),
-        }),
+        user: expect.any(String),
         token: expect.any(String),
       })
     );

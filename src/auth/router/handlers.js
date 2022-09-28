@@ -6,7 +6,7 @@ async function handleSignup(req, res, next) {
   try {
     let userRecord = await users.create(req.body);
     const output = {
-      username: userRecord.username,
+      user: userRecord.username,
       token: userRecord.token,
     };
     res.status(201).json(output);
@@ -19,7 +19,7 @@ async function handleSignup(req, res, next) {
 async function handleSignin(req, res, next) {
   try {
     const user = {
-      username: req.username,
+      user: req.user.username,
       token: req.user.token,
     };
     res.status(200).json(user);

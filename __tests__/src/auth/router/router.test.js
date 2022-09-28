@@ -29,8 +29,7 @@ describe('Auth Router', () => {
 
     expect(response.status).toBe(201);
     expect(userObject.token).toBeDefined();
-    expect(userObject.user.id).toBeDefined();
-    expect(userObject.user.username).toEqual(userData.testUser.username);
+    expect(userObject.user).toEqual(userData.testUser.username);
   });
 
   it('Can signin with basic auth string', async () => {
@@ -42,8 +41,7 @@ describe('Auth Router', () => {
     const userObject = response.body;
     expect(response.status).toBe(200);
     expect(userObject.token).toBeDefined();
-    expect(userObject.user.id).toBeDefined();
-    expect(userObject.user.username).toEqual(username);
+    expect(userObject.user).toEqual(username);
   });
 
   it('Can signin with bearer auth token', async () => {
@@ -52,7 +50,7 @@ describe('Auth Router', () => {
     // First, use basic to login to get a token
     const response = await mockRequest.post('/signin')
       .auth(username, password);
-    console.log(response.body)
+
     accessToken = response.body.token;
 
     // First, use basic to login to get a token
