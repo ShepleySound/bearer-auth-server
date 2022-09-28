@@ -57,7 +57,6 @@ Author: Robert Shepley
 
 ##### Responses
 
-
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
@@ -106,3 +105,9 @@ Author: Robert Shepley
 ## Tests
 
 - Unit Tests: `npm run test`
+
+## Structure Diagram
+
+(Created with [app.diagrams.net](https://app.diagrams.net/))
+
+![Diagram](./bearer-auth-uml.png)
