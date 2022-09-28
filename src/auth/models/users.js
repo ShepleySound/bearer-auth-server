@@ -11,13 +11,15 @@ const userSchema = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get() {
         return jwt.sign({ username: this.username });
-      }
-    }
-  });
-
-  model.prototype.beforeCreate(async (user) => {
-    let hashedPass = bcrypt.hash(user.password, 10);
-    user.password = hashedPass;
+      },
+    },
+  }, {
+    hooks: {
+      beforeCreate: (async (user) => {
+        const hashedPassword = await bcrypt.hash(user.password, 10);
+        user.password = hashedPassword;
+      }),
+    },
   });
 
   // Basic AUTH: Validating strings (username, password) 
