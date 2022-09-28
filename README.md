@@ -2,9 +2,9 @@
 
 Author: Robert Shepley
 <!-- Replace URL's and add more necessary links -->
-- [Tests Report](URL)
-- [Assignment Pull Request](URL)
-- [Heroku Prod Deployment](URL)
+- [Tests Report](https://github.com/ShepleySound/bearer-auth-server/actions)
+- [Assignment Pull Request](https://github.com/ShepleySound/bearer-auth-server/pull/1)
+- [Heroku Prod Deployment](https://shepley-bearer-auth.herokuapp.com/)
 
 ## Setup
 
