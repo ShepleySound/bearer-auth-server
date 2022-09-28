@@ -2,10 +2,10 @@
 
 require('dotenv').config();
 const { app } = require('./src/server');
-const { sequelizeDB } = require('./src/app');
+const { db } = require('./src/auth/models');
 const PORT = process.env.PORT || 3002;
 
-sequelizeDB
+db
   .sync()
   .then(() => console.log('Database connection successful.'))
   .catch(err => console.error(err.message));

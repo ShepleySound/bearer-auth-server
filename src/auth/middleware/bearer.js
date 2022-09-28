@@ -9,13 +9,15 @@ module.exports = async (req, res, next) => {
     if (!req.headers.authorization) { next('Invalid Login') }
 
     const token = req.headers.authorization.split(' ').pop();
+    console.log("Before model auth")
     const validUser = await users.authenticateToken(token);
+    console.log('after model auth')
 
     req.user = validUser;
     req.token = validUser.token;
-
-  } catch (e) {
-    console.error(e);
+    next();
+  } catch (err) {
+    console.error(err);
     res.status(403).send('Invalid Login');
   }
-}
+};

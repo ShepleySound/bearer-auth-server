@@ -6,7 +6,7 @@ async function handleSignup(req, res, next) {
   try {
     let userRecord = await users.create(req.body);
     const output = {
-      user: userRecord.username,
+      user: userRecord,
       token: userRecord.token,
     };
     res.status(201).json(output);
@@ -41,7 +41,7 @@ async function handleGetUsers(req, res, next) {
 }
 
 function handleSecret(req, res, next) {
-  res.status(200).text('Welcome to the secret area!');
+  res.status(200).send('Welcome to the secret area!');
 }
 
 module.exports = {

@@ -52,7 +52,7 @@ describe('Auth Router', () => {
     // First, use basic to login to get a token
     const response = await mockRequest.post('/signin')
       .auth(username, password);
-
+    console.log(response.body)
     accessToken = response.body.token;
 
     // First, use basic to login to get a token
