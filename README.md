@@ -25,7 +25,7 @@ Author: Robert Shepley
 
   ```text
   PORT=<port number>
-  DATABASE_URL=postgres://localhost:5432/auth-api
+  SECRET=<AStringToBeKeptSecret>
   ```
 
 - In the `config/config.json` file, set your username and password under the 'development' entry. Keep in mind, these both must be wrapped in double quotes.
@@ -69,7 +69,7 @@ Author: Robert Shepley
 | --- |
 | BasicAuth |
 
-<!-- ### /protected
+### /users
 
 #### GET
 
@@ -78,20 +78,37 @@ Author: Robert Shepley
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
-| 401 | Unauthorized |
+| 403 | Unauthorized |
 
 ##### Security
 
 | Security Schema
 | --- |
-| BasicAuth | -->
+| BearerAuth |
+
+### /secret
+
+#### GET
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 403 | Unauthorized |
+
+##### Security
+
+| Security Schema
+| --- |
+| BearerAuth |
 
 ## Tests
 
 - Unit Tests: `npm run test`
 
-<!-- ## UML
+## UML
 
 (Created with [diagrams](https://app.diagrams.net/)) -->
 
-<!-- ![UML Image](URL) -->
+![UML Image](URL)
