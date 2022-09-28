@@ -106,9 +106,3 @@ Author: Robert Shepley
 ## Tests
 
 - Unit Tests: `npm run test`
-
-## UML
-
-(Created with [diagrams](https://app.diagrams.net/)) -->
-
-![UML Image](URL)
